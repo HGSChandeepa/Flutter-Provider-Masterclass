@@ -14,6 +14,15 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Product> products = ProductData().products;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Flutter Shop ',
+          style: TextStyle(
+            color: Colors.deepOrange,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -26,9 +35,12 @@ class ProductsPage extends StatelessWidget {
                 ),
               );
             },
-            backgroundColor: Colors.orangeAccent,
+            backgroundColor: Colors.deepOrange,
             heroTag: 'favorite_button',
-            child: const Icon(Icons.favorite),
+            child: const Icon(
+              Icons.favorite,
+              color: Colors.white,
+            ),
           ),
           const SizedBox(width: 20),
           FloatingActionButton(
@@ -40,9 +52,12 @@ class ProductsPage extends StatelessWidget {
                 ),
               );
             },
-            backgroundColor: Colors.orangeAccent,
+            backgroundColor: Colors.deepOrange,
             heroTag: 'cart_button',
-            child: const Icon(Icons.shopping_cart),
+            child: const Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
@@ -57,7 +72,12 @@ class ProductsPage extends StatelessWidget {
                 return ListTile(
                   title: Row(
                     children: [
-                      Text(product.title),
+                      Text(
+                        product.title,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       const SizedBox(width: 50),
                       Text(
                         cart.items.containsKey(product.id)
@@ -65,7 +85,7 @@ class ProductsPage extends StatelessWidget {
                             : '0',
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.deepOrangeAccent,
+                          color: Colors.black,
                         ),
                       ),
                     ],
